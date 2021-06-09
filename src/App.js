@@ -151,6 +151,15 @@ function App() {
       ) : (
         <Steps />
       )}
+      <footer>
+        <p className="copyright">
+          {" "}
+          ©2021 All rights reserved to{" "}
+          <a href="https://www.linkedin.com/in/harsh-kumar-chandrakar-244795179/">
+            Harsh Kumar Chandrakar
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
