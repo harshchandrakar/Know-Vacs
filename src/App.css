@@ -1,38 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Mate+SC&family=Open+Sans&display=swap");
+* {
+  margin: 0;
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App__header {
+  background-color: #00adb5;
+  text-align: center;
+  padding-top: 4em;
+  height: 30vh;
+  margin: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App__heading {
   color: white;
+  font-size: 2.5em;
+  font-family: "Mate SC", serif;
 }
-
-.App-link {
-  color: #61dafb;
+.App__description {
+  color: #eeeeee;
+  font-family: "Open Sans", sans-serif;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App__form {
+  text-align: center;
+}
+.App__dropdown {
+  background-color: #00adb5;
+  border: 0;
+  height: 3em;
+  margin: 2em 1em;
+  color: #eeeeee;
+  width: 250px;
+  font-size: 1em;
+}
+.App__search {
+  font-size: 100px;
+  color: #00adb5;
+}
+.btn {
+  border: 0;
+  background-color: #393e46;
+  color: white;
+  height: 3em;
+  padding: 0.8em;
+  margin: 2em 10em;
+  font-size: 1em;
+}
+#date {
+  background-color: #00adb5;
+  border: 0;
+  height: 3em;
+  margin: 2em 1em;
+  color: #eeeeee;
+  width: 250px;
+  font-size: 1.24em;
 }

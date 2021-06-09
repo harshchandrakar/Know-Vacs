@@ -1,0 +1,12 @@
+.steps {
+  background-color: #aad8d3;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 10px;
+  color: #393e46;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.steps__inner {
+  display: inline-block;
+  text-align: left;
+}
