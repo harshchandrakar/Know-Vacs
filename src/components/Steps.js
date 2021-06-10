@@ -21,7 +21,12 @@ function Steps() {
         </p>
         <br></br>
         <p>
-          <strong>Step 4:</strong>Click search and you are done!
+          <strong>Step 4: </strong>Select hospital if you have any specific
+          choice.
+        </p>
+        <br></br>
+        <p>
+          <strong>Step 5: </strong>Click search and you are done!
         </p>
         <br></br>
       </div>

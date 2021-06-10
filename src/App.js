@@ -11,6 +11,7 @@ function App() {
   const [date, setDate] = useState(formatDate(new Date().toDateString()));
   const [hospitals, setHospitals] = useState(null);
   const [submit, setSubmit] = useState(false);
+  const [selectHos, setSelectHos] = useState("any");
   useEffect(() => {
     fetch(
       `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${stateId}`,
@@ -74,6 +75,35 @@ function App() {
 
     return [year, month, day].join("-");
   }
+  function selectiveSearch(selectHos) {
+    if (selectHos === "any") {
+      return hospitals.centers.map((hospital, id) => {
+        return (
+          <Outer
+            key={id}
+            hospitalName={hospital.name}
+            hospitalAdress={hospital.address}
+            sessions={hospital.sessions}
+          />
+        );
+      });
+    } else {
+      return hospitals.centers
+        .filter((value) => {
+          return value.center_id == selectHos;
+        })
+        .map((item, id) => {
+          return (
+            <Outer
+              key={id}
+              hospitalAdress={item.address}
+              hospitalName={item.name}
+              sessions={item.sessions}
+            />
+          );
+        });
+    }
+  }
 
   return (
     <div className="App">
@@ -99,7 +129,7 @@ function App() {
           onChange={(e) => setStateId(e.target.value)}
           id="states"
         >
-          <option value="state">Select state</option>
+          <option value="any">Select state</option>
           {States.map((state, id) => {
             return (
               <option key={id} value={state.state_id}>
@@ -115,7 +145,7 @@ function App() {
           onChange={(e) => setDistrictId(e.target.value)}
           id="distict"
         >
-          <option value="districts">Select District</option>
+          <option value="any">Select District</option>
           {data &&
             Districts.districts.map((district, id) => {
               return (
@@ -132,25 +162,28 @@ function App() {
           onChange={(e) => setDate(e.target.value)}
           name="date"
         ></input>
+        <select
+          className="App__dropdown"
+          name="district_id"
+          onChange={(e) => setSelectHos(e.target.value)}
+          id="distict"
+        >
+          <option value="any">All hospitals</option>
+          {data &&
+            hospitals.centers.map((hospital, id) => {
+              return (
+                <option key={id} value={hospital.center_id}>
+                  {hospital.name}
+                </option>
+              );
+            })}
+        </select>
         <button className="btn" type="button" onClick={() => setSubmit(true)}>
           Search
         </button>
       </form>
       {/* result */}
-      {submit ? (
-        hospitals.centers.map((hospital, id) => {
-          return (
-            <Outer
-              key={id}
-              hospitalName={hospital.name}
-              hospitalAdress={hospital.address}
-              sessions={hospital.sessions}
-            />
-          );
-        })
-      ) : (
-        <Steps />
-      )}
+      {submit ? selectiveSearch(selectHos) : <Steps />}
       <footer>
         <p className="copyright">
           {" "}
