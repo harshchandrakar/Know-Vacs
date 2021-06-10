@@ -1,9 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap");
 .outer {
   padding: 1em;
 }
 .outer__heading {
   margin: 1em;
+  font-family: "Merriweather", serif;
 }
 .h4 {
   margin: 2em;
+  font-family: "Open Sans", sans-serif;
+}
+.hr {
+  border-style: none;
+  border-top-style: dotted;
+  border-width: 10px;
+  border-color: #238287;
+  height: 0;
+  width: 20%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-items: center;
+  display: inline-block;
 }

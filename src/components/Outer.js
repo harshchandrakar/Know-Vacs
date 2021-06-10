@@ -2,13 +2,14 @@ import React from "react";
 import Card from "./Cards";
 import "./Outer.css";
 
-function Outer({ hospitalName, hospitalAdress, sessions }) {
+function Outer({ hospitalName, hospitalAdress, type, sessions }) {
   return (
     <div className="outer">
       <h1 className="outer__heading">Hospital Name: {hospitalName}</h1>
       <h4 className="h4">
         <strong>Address</strong> : {hospitalAdress}
       </h4>
+      <h4 className="h4">Fee type : {type}</h4>
       {sessions.map((detail, id) => (
         <Card
           key={id}
@@ -21,7 +22,8 @@ function Outer({ hospitalName, hospitalAdress, sessions }) {
           slot={detail.slots}
         />
       ))}
-      <hr></hr>
+      <br></br>
+      <hr className="hr"></hr>
     </div>
   );
 }

@@ -84,6 +84,7 @@ function App() {
             hospitalName={hospital.name}
             hospitalAdress={hospital.address}
             sessions={hospital.sessions}
+            type={hospital.fee_type}
           />
         );
       });
@@ -99,6 +100,7 @@ function App() {
               hospitalAdress={item.address}
               hospitalName={item.name}
               sessions={item.sessions}
+              type={item.fee_type}
             />
           );
         });
