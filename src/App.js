@@ -11,7 +11,7 @@ function App() {
   const [date, setDate] = useState(formatDate(new Date().toDateString()));
   const [hospitals, setHospitals] = useState(null);
   const [submit, setSubmit] = useState(false);
-  const [selectHos, setSelectHos] = useState("any");
+  const [selectHos, setSelectHos] = useState(0);
   useEffect(() => {
     fetch(
       `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${stateId}`,
@@ -76,7 +76,7 @@ function App() {
     return [year, month, day].join("-");
   }
   function selectiveSearch(selectHos) {
-    if (selectHos === "any") {
+    if (selectHos === 0) {
       return hospitals.centers.map((hospital, id) => {
         return (
           <Outer
@@ -91,7 +91,7 @@ function App() {
     } else {
       return hospitals.centers
         .filter((value) => {
-          return value.center_id == selectHos;
+          return value.center_id === +selectHos;
         })
         .map((item, id) => {
           return (
@@ -170,7 +170,7 @@ function App() {
           onChange={(e) => setSelectHos(e.target.value)}
           id="distict"
         >
-          <option value="any">All hospitals</option>
+          <option value={selectHos}>All hospitals</option>
           {data &&
             hospitals.centers.map((hospital, id) => {
               return (
